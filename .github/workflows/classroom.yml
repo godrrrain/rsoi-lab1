@@ -48,7 +48,7 @@ jobs:
 
       - name: Unit testing
         run: |
-          go test . 
+          go test .
 
       # TODO build, test and deploy project
 
