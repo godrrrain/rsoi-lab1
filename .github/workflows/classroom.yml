@@ -54,6 +54,15 @@ jobs:
       - name: Unit testing
         run: |
           go test .
+  
+  api-test:
+    name: Run API Tests
+    uses: matt-ball/newman-action@master
+    with:
+      collection: postman/[inst] Lab1.postman_collection.json
+      environment: postman/[inst][heroku] Lab1.postman_environment.json
+      delayRequest: 100
+      reporters: '[ "cli" ]'
 
   deploy:
     name: Deploy
@@ -67,7 +76,7 @@ jobs:
           curl "$deploy_url"
 
       # TODO build, test and deploy project
-
+  
       - name: Run API Tests
         uses: matt-ball/newman-action@master
         with:
