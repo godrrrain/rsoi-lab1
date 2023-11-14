@@ -60,6 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: unit-test
     steps:
+      - uses: actions/checkout@master
       - uses: matt-ball/newman-action@master
         with:
           collection: postman/[inst] Lab1.postman_collection.json
