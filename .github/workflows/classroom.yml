@@ -41,6 +41,11 @@ jobs:
         uses: actions/setup-go@v4
         with:
           go-version: '1.21.1'
+          
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo MONGOURI=${{ secrets.MONGOURI }} >> .env
 
       - name: Install dependencies
         run: |
